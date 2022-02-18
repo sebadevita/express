@@ -15,4 +15,15 @@ router.get("/users/quantity", (req, res) => {
   res.json(users.length)
 })
 
+router.post("/users", (req, res) => {
+  const { body } = req
+
+  if (body.name) {
+    users.push(body)
+    return res.sendStatus(201)
+  } else {
+    return res.sendStatus(400)
+  }
+})
+
 module.exports = router
