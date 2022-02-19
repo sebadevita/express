@@ -15,6 +15,16 @@ router.get("/users/quantity", (req, res) => {
   res.json(users.length)
 })
 
+router.get("/users/major", (req, res) => {
+  const usersMajors = users.filter((user) => user.age > 18)
+  res.json(usersMajors)
+})
+
+router.get("/users/minor", (req, res) => {
+  const usersMinors = users.filter((user) => user.age < 18)
+  res.json(usersMinors)
+})
+
 router.post("/users", (req, res) => {
   const { body } = req
 
